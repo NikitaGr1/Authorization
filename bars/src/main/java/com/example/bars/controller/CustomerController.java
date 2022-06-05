@@ -65,18 +65,4 @@ public class CustomerController
         return "main";
     }
 
-    /*@GetMapping("/all")
-    public List<Customer> getAllCustomers() {
-        return customerRepository.findAll();
-    }
-
-    @GetMapping("/one")
-    public Customer getCustomer(@RequestParam(name = "email") String email) {
-        return customerRepository.findByEmail(email);
-    }
-
-    @PostMapping("/create")
-    public Customer addCustomer(@RequestBody Customer customer) {
-        return customerRepository.save(customer);
-    }*/
 }
