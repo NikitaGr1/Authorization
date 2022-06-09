@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <title>Home page</title>
+  <link th:href="@{/styles/css/bootstrap.min.css}" rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
+  <link th:href="@{/styles/css/fontawesome.css}" rel="stylesheet" type="text/css" href="/style/fontawesome.css">
+  <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css}" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css">
+</head>
+<body>
+<div class="alert alert-success alert-success-login">You have successfully logged in!</div>
+<div class="home-message">Now you can log out..</div>
+<form th:action="@{/logout}" method="post" style="text-align: center;">
+  <button type="submit" class="btn btn-logout">Sign out</button>
+</form>
+</body>
+</html>

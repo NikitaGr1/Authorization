@@ -2,6 +2,8 @@ package com.example.bars.controller;
 
 import com.example.bars.document.Customer;
 import com.example.bars.repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +14,8 @@ import java.util.List;
 //@RequestMapping(value = "/")
 public class CustomerController
 {
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     private final CustomerRepository customerRepository;
 
     public CustomerController(CustomerRepository customerRepository) {
@@ -25,12 +29,13 @@ public class CustomerController
 
     @PostMapping("/register")
     public String addCustomer(Customer customer, Model model) {
-        Customer customerFromDB = customerRepository.findByEmail(customer.getEmail());
+        Customer customerFromDB = customerRepository.findByUsername(customer.getUsername());
 
         if (customerFromDB != null) {
             model.addAttribute("message", "Customer with such an email already exists!");
             return "register";
         }
+        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customerRepository.save(customer);
         return "redirect:/auth";
     }
@@ -40,9 +45,20 @@ public class CustomerController
         return "auth";
     }
 
+    @GetMapping("/home")
+    public String home()
+    {
+        return "home";
+    }
+
     @PostMapping("/auth")
+    public String login(Customer customer) {
+        return "redirect:/main";
+    }
+
+    /*@PostMapping("/auth")
     public String login(Customer customer, Model model) {
-        Customer customerFromDB = customerRepository.findByEmail(customer.getEmail());
+        Customer customerFromDB = customerRepository.findByUsername(customer.getUsername());
 
         if (customerFromDB != null) {
             if (!customerFromDB.getPassword().equals(customer.getPassword())) {
@@ -53,16 +69,30 @@ public class CustomerController
         }
         model.addAttribute("message", "User with the same email does not exist!");
         return "auth";
-    }
+    }*/
 
-    @GetMapping("/logout")
+    /*@GetMapping("/logout")
     public String logout() {
         return "redirect:/auth";
-    }
+    }*/
 
     @GetMapping("/main")
     public String main() {
         return "main";
     }
 
+    /*@GetMapping("/all")
+    public List<Customer> getAllCustomers() {
+        return customerRepository.findAll();
+    }
+
+    @GetMapping("/one")
+    public Customer getCustomer(@RequestParam(name = "email") String email) {
+        return customerRepository.findByEmail(email);
+    }
+
+    @PostMapping("/create")
+    public Customer addCustomer(@RequestBody Customer customer) {
+        return customerRepository.save(customer);
+    }*/
 }
