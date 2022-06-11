@@ -28,21 +28,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     SecUserDetailsService userDetailsService;
 
     @Autowired
+    CustomizeAuthenticationSuccessHandler customizeAuthenticationSuccessHandler;
+
+    @Autowired
+    CustomizeLogoutSuccessHandler customizeLogoutSuccessHandler;
+
+    @Autowired
     CustomerRepository customerRepository;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/register", "/styles/css/**").permitAll()
+                .antMatchers("/register", "/styles/css/**", "/auth").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
+                .successHandler(customizeAuthenticationSuccessHandler)
                 .loginPage("/auth")
-                .defaultSuccessUrl("/home", true)
+                //.defaultSuccessUrl("/home", true)
                 .permitAll()
                 .and()
                 .logout()
+                .logoutSuccessHandler(customizeLogoutSuccessHandler)
                 .permitAll();
     }
 
