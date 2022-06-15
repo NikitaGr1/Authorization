@@ -11,13 +11,11 @@ import java.util.Date;
 public class Customer
 {
     @Id
+    private String guid;
     private String username;
     private String password;
     private String sessionToken;
     private Date creationDate = new Date();
-
-    private String guid;
-
     private long auid;
     private PasswordEncoder passwordEncoder;
 
@@ -30,6 +28,9 @@ public class Customer
         this.password = passwordEncoder.encode(password);
     }
 
+    public String getGuid() {
+        return guid;
+    }
     public String getUsername() {
         return username;
     }
@@ -60,14 +61,6 @@ public class Customer
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
-    }
-
-    public String getGuid() {
-        return guid;
-    }
-
-    public void setGuid(String guid) {
-        this.guid = guid;
     }
 
     public long getAuid() {

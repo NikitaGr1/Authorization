@@ -45,7 +45,6 @@ public class CustomerController
             return "register";
         }
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
-        customer.setGuid(Long.toString(System.currentTimeMillis()));
         customerRepository.save(customer);
         return "redirect:/auth";
     }

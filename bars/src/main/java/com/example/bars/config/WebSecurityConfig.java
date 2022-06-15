@@ -5,6 +5,7 @@ import com.example.bars.service.SecUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -39,19 +40,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/register", "/styles/css/**", "/auth").permitAll()
-                .anyRequest().authenticated()
+                    .antMatchers("/register", "/styles/css/**", "/auth", "/crud/**").permitAll()
+                    .antMatchers(HttpMethod.POST).permitAll()
+                    //.antMatchers(HttpMethod.GET).permitAll()
+                    .antMatchers(HttpMethod.PUT).permitAll()
+                    .antMatchers(HttpMethod.DELETE).permitAll()
+                    .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .successHandler(customizeAuthenticationSuccessHandler)
-                .loginPage("/auth")
-                //.defaultSuccessUrl("/home", true)
-                .permitAll()
+                    .formLogin()
+                    .successHandler(customizeAuthenticationSuccessHandler)
+                    .loginPage("/auth")
+                    //.defaultSuccessUrl("/home", true)
+                    .permitAll()
                 .and()
-                .logout()
-                .logoutSuccessHandler(customizeLogoutSuccessHandler)
-                .permitAll();
+                    .logout()
+                    .logoutSuccessHandler(customizeLogoutSuccessHandler)
+                    .permitAll();
     }
 
 
