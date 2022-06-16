@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:rot="urn://ru.tot.rot/ROTRequestResponse/1.0.1" targetNamespace="urn://ru.tot.rot/ROTRequestResponse/1.0.1">
+
+    <xs:element name="ROTRequest" type="rot:ROTRequestType">
+        <xs:annotation>
+            <xs:documentation>Базовый запрос</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:element name="ROTResponse" type="rot:ROTResponseType">
+        <xs:annotation>
+            <xs:documentation>Базовый ответ</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <!-- Общий запрос -->
+    <xs:complexType name="ROTRequestType">
+        <xs:choice>
+            <xs:element name="NPARequest" type="rot:NPARequestType">
+                <xs:annotation>
+                    <xs:documentation>Базовый запрос для получения актов</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SURequest" type="rot:SURequestType">
+                <xs:annotation>
+                    <xs:documentation>Базовый запрос для получения структурных единиц актов</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="MRRequest" type="rot:MRRequestType">
+                <xs:annotation>
+                    <xs:documentation>Базовый запрос для получения обязательных требований</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:choice>
+    </xs:complexType>
+    <!-- Запросы -->
+    <xs:complexType name="NPARequestType">
+        <xs:sequence>
+            <xs:element name="dateFrom" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Начальная дата интервала изменений</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="dateTo" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Конечная дата интервала изменений</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="OivId" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Идентификаторы контрольных (надзорных) органов - recordId КНО из ЕРВК</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="controlTypeId" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Идентификаторы видов контроля - recordId ВК из ЕРВК</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SURequestType">
+        <xs:sequence>
+            <xs:element name="dateFrom" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Начальная дата интервала изменений</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="dateTo" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Конечная дата интервала изменений</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="OivId" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Идентификаторы контрольных (надзорных) органов - recordId КНО из ЕРВК</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="controlTypeId" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Идентификаторы видов контроля - recordId ВК из ЕРВК</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="npaId" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Идентификаторы актов из ФГИС РОТ</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MRRequestType">
+        <xs:sequence>
+            <xs:element name="dateFrom" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Начальная дата интервала изменений</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="dateTo" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Конечная дата интервала изменений</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="OivId" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Идентификаторы контрольных (надзорных) органов - recordId КНО из ЕРВК</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="controlTypeId" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Идентификаторы видов контроля - recordId ВК из ЕРВК</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="npaId" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Идентификаторы актов из ФГИС РОТ</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- Общий ответ -->
+    <xs:complexType name="ROTResponseType">
+        <xs:sequence>
+            <xs:element name="ROTResponseStatus" type="rot:CodeTitleType">
+                <xs:annotation>
+                    <xs:documentation>Cтатус ответа</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:choice>
+                <xs:element name="NPAList" type="rot:NPAListType">
+                    <xs:annotation>
+                        <xs:documentation>Базовый ответ на запрос актов</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="SUList" type="rot:SUListType">
+                    <xs:annotation>
+                        <xs:documentation>Базовый ответ на запрос структурных единиц актов</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="MRList" type="rot:MRListType">
+                    <xs:annotation>
+                        <xs:documentation>Базовый ответ на запрос обязательных требований</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:choice>
+            <xs:element minOccurs="0" maxOccurs="1" name="queryItemsQuantity" type="xs:integer" />
+        </xs:sequence>
+    </xs:complexType>
+    <!-- Ответ на запрос НПА -->
+    <xs:complexType name="NPAListType">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="NPAListItem" type="rot:NPAListItemType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="NPAListItemType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="npaId" type="xs:string" />
+            <xs:element minOccurs="0" name="region" type="rot:CodeTitleType" />
+            <xs:element minOccurs="0" name="npaType" type="rot:CodeTitleType" />
+            <xs:element minOccurs="0" name="npaTitle" type="xs:string" />
+            <xs:element minOccurs="0" name="npaApprovingAuthority" maxOccurs="unbounded" type="rot:CodeTitleType" />
+            <xs:element minOccurs="0" name="npaAcceptanceDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="npaPublicId" type="xs:string" />
+            <xs:element minOccurs="0" name="minustRegistryDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="minustRegistryNumber" type="xs:string" />
+            <xs:element minOccurs="0" name="npaLinkPravoGovRu" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="oivData" type="rot:OivDataType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OivDataType">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="oivCode" type="rot:CodeTitleType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="oivControl" type="rot:CodeTitleType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="controlType" type="rot:CodeTitleType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="categoriesOfPersons" type="rot:CodeTitleType" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="activitySubtypes" type="rot:CodeTitleType" />
+            <xs:element minOccurs="0" name="penaltySourceNPAParagraphDetails" type="xs:string" />
+            <xs:element minOccurs="0" name="approveActListActType" type="rot:CodeTitleType" />
+            <xs:element minOccurs="0" name="approveActListDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="approveActListActNumber" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CodeTitleType">
+        <xs:sequence>
+            <xs:element name="code" minOccurs="0" type="xs:string" />
+            <xs:element name="title" minOccurs="0" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <!-- Ответ на запрос СЕ -->
+    <xs:complexType name="SUListType">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="structuralUnit" type="rot:SeType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SeType">
+        <xs:sequence>
+            <xs:element name="id" minOccurs="0" type="xs:string" />
+            <xs:element name="npaId" minOccurs="0" type="xs:string" />
+            <xs:element name="npaTitle" minOccurs="0" type="xs:string" />
+            <xs:element name="requisites" minOccurs="0" type="rot:RequisitesType" />
+            <xs:element name="content" minOccurs="0" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RequisitesType">
+        <xs:sequence>
+            <xs:element name="item" minOccurs="0" type="xs:string" />
+            <xs:element name="part" minOccurs="0" type="xs:string" />
+            <xs:element name="other" minOccurs="0" type="xs:string" />
+            <xs:element name="indent" minOccurs="0" type="xs:string" />
+            <xs:element name="article" minOccurs="0" type="xs:string" />
+            <xs:element name="chapter" minOccurs="0" type="xs:string" />
+            <xs:element name="section" minOccurs="0" type="xs:string" />
+            <xs:element name="subitem" minOccurs="0" type="xs:string" />
+            <xs:element name="paragraph" minOccurs="0" type="xs:string" />
+            <xs:element name="subsection" minOccurs="0" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <!-- Ответ на запрос ОТ -->
+    <xs:complexType name="MRListType">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="mandatoryRequirement" type="rot:MandatoryRequirementType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MandatoryRequirementType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" />
+            <xs:element name="publicId" type="xs:string" />
+            <xs:element name="title" type="xs:string" />
+            <xs:element name="region" minOccurs="0" type="rot:CodeTitleType" />
+            <xs:element name="validityEndDate" minOccurs="0" type="xs:dateTime" />
+            <xs:element name="infiniteValidity" minOccurs="0" type="xs:boolean" />
+            <xs:element name="checkQuestion" minOccurs="0" type="xs:string" />
+            <xs:element name="approvingFiles" minOccurs="0" type="xs:string" />
+            <xs:element name="links" minOccurs="0" type="rot:LinksType" />
+            <xs:element name="se" minOccurs="0" type="rot:SeType" />
+            <xs:element name="referenceData" minOccurs="0" type="rot:ReferenceDataType" />
+            <xs:element name="npaKndData" minOccurs="0" type="rot:NpaKndDataType" />
+            <xs:element name="penaltyData" minOccurs="0" type="rot:PenaltyDataType" />
+            <xs:element name="isDeleted" minOccurs="0" type="xs:boolean" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LinksType">
+        <xs:sequence>
+            <xs:element name="checkListLinks" minOccurs="0" type="xs:string" />
+            <xs:element name="guidelineLinks" minOccurs="0" type="xs:string" />
+            <xs:element name="reportSuccessLinks" minOccurs="0" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ReferenceDataType">
+        <xs:sequence>
+            <xs:element name="status" minOccurs="0" type="rot:CodeTitleType" />
+            <xs:element name="categoriesOfPersons" minOccurs="0" maxOccurs="unbounded" type="rot:CodeTitleType" />
+            <xs:element name="categoriesOfPersonsOtherTitle" minOccurs="0" type="xs:string" />
+            <xs:element name="mrEstablishmentObject" minOccurs="0" maxOccurs="unbounded" type="rot:CodeTitleType" />
+            <xs:element name="publicRelationSpheres" minOccurs="0" maxOccurs="unbounded" type="rot:CodeTitleType" />
+            <xs:element name="activitySubtype" minOccurs="0" maxOccurs="unbounded" type="rot:CodeTitleType" />
+            <xs:element name="assessmentForm" minOccurs="0" maxOccurs="unbounded" type="rot:CodeTitleType" />
+            <xs:element name="documentReleaseOIV" minOccurs="0" maxOccurs="unbounded" type="rot:CodeTitleType" />
+            <xs:element name="oivRegulator" minOccurs="0" maxOccurs="unbounded" type="rot:CodeTitleType" />
+            <xs:element name="documentReleaseOIVOther" minOccurs="0" type="xs:string" />
+            <xs:element name="controlTypes" minOccurs="0" maxOccurs="unbounded" type="rot:CodeTitleType" />
+            <xs:element name="interestedOIV" minOccurs="0" maxOccurs="unbounded" type="rot:CodeTitleType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="NpaKndDataType">
+        <xs:sequence>
+            <xs:element name="npaId" minOccurs="0" type="xs:string" />
+            <xs:element name="npaPublicId" minOccurs="0" type="xs:string" />
+            <xs:element name="npaTitle" minOccurs="0" type="xs:string" />
+            <xs:element name="npaType" minOccurs="0" type="rot:CodeTitleType" />
+            <xs:element name="npaApprovingAuthority" minOccurs="0" maxOccurs="unbounded" type="rot:CodeTitleType" />
+            <xs:element name="npaAcceptanceDate" minOccurs="0" type="xs:dateTime" />
+            <xs:element name="npaNumber" minOccurs="0" type="xs:string" />
+            <xs:element name="npaLinkPravoGovRu" minOccurs="0" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PenaltyDataType">
+        <xs:sequence>
+            <xs:element name="responsibility" minOccurs="0" type="xs:boolean" />
+            <xs:element name="penaltyNpaTitle" minOccurs="0" type="rot:CodeTitleType" />
+            <xs:element name="penaltyNpaArticle" minOccurs="0" type="xs:string" />
+            <xs:element name="penaltyNpaArticleChapter" minOccurs="0" type="xs:string" />
+            <xs:element name="penaltyNpaSETitle" minOccurs="0" type="xs:string" />
+            <xs:element name="penaltyAuthority" minOccurs="0" maxOccurs="unbounded" type="rot:CodeTitleType" />
+            <xs:element name="penaltyAdministrativeResponsibilitySubject" minOccurs="0" maxOccurs="unbounded" type="rot:PenaltyAdministrativeResponsibilitySubjectType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PenaltyAdministrativeResponsibilitySubjectType">
+        <xs:sequence>
+            <xs:element name="code" minOccurs="0" type="rot:CodeTitleType" />
+            <xs:element name="sanctions" minOccurs="0" maxOccurs="unbounded" type="rot:SanctionsType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SanctionsType">
+        <xs:sequence>
+            <xs:element name="code" minOccurs="0" type="rot:CodeTitleType" />
+            <xs:element name="measure" minOccurs="0" type="rot:MeasureType" />
+            <xs:element name="comment" minOccurs="0" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MeasureType">
+        <xs:sequence>
+            <xs:element name="measureType" minOccurs="0" type="xs:string" />
+            <xs:element name="valueType" minOccurs="0" type="xs:string" />
+            <xs:element name="accurate" minOccurs="0" type="xs:int" />
+            <xs:element name="from" minOccurs="0" type="xs:int" />
+            <xs:element name="to" minOccurs="0" type="xs:int" />
+            <xs:element name="other" minOccurs="0" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

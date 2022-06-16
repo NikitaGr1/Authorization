@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rot:ROTResponse xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                 xmlns:rot="urn://ru.tot.rot/ROTRequestResponse/1.0.1">
+    <rot:ROTResponseStatus>
+        <rot:code>0</rot:code>
+        <rot:title>Success</rot:title>
+    </rot:ROTResponseStatus>
+    <rot:NPAList>
+        <rot:NPAListItem>
+            <rot:npaId>0022175f-e195-49f7-81cb-8fc968a5f3fc</rot:npaId>
+            <rot:region>
+                <rot:code>federal</rot:code>
+                <rot:title>Федеральный уровень</rot:title>
+            </rot:region>
+            <rot:npaType>
+                <rot:code>NpaKind_00005</rot:code>
+                <rot:title>Приказ ФОИВ</rot:title>
+            </rot:npaType>
+            <rot:npaTitle>Об утверждении федерального государственного образовательного стандарта среднего профессионального образования по специальности 54.02.05 Живопись с присвоением квалификаций художник-живописец, преподаватель</rot:npaTitle>
+            <rot:npaApprovingAuthority/>
+            <rot:npaAcceptanceDate>2016-06-17T02:00:00+05:00</rot:npaAcceptanceDate>
+            <rot:npaPublicId>721</rot:npaPublicId>
+            <rot:minustRegistryDate>2016-07-12T02:00:00+05:00</rot:minustRegistryDate>
+            <rot:minustRegistryNumber>42817</rot:minustRegistryNumber>
+            <rot:npaLinkPravoGovRu>http://publication.pravo.gov.ru/Document/View/0001201607130021</rot:npaLinkPravoGovRu>
+            <rot:oivData>
+                <rot:oivCode>
+                    <rot:code>OIV_00024</rot:code>
+                    <rot:title>Министерство просвещения Российской Федерации</rot:title>
+                </rot:oivCode>
+                <rot:oivControl>
+                    <rot:code>OIV_00001</rot:code>
+                    <rot:title>Органы государственной власти субъектов Российской Федерации, которым переданы полномочия по контролю (надзору)</rot:title>
+                </rot:oivControl>
+                <rot:controlType>
+                    <rot:code>cd7ddb64-6ab8-4170-9b81-4af95dbed51a</rot:code>
+                    <rot:title>Государственная аккредитация образовательной деятельности</rot:title>
+                </rot:controlType>
+                <rot:categoriesOfPersons>
+                    <rot:code>CategoryOfPersons_03</rot:code>
+                    <rot:title>Юридические лица</rot:title>
+                </rot:categoriesOfPersons>
+                <rot:activitySubtypes>
+                    <rot:code>85.21</rot:code>
+                    <rot:title>85.21 Образование профессиональное среднее</rot:title>
+                </rot:activitySubtypes>
+                <rot:penaltySourceNPAParagraphDetails>ч. 2 статьи 19.30 Кодекса Российской Федерации об административных правонарушениях</rot:penaltySourceNPAParagraphDetails>
+                <rot:approveActListActType>
+                    <rot:code>ActTypeForApproveActList_00003</rot:code>
+                    <rot:title>Утвержденный перечень</rot:title>
+                </rot:approveActListActType>
+                <rot:approveActListDate>2021-09-21T02:00:00+05:00</rot:approveActListDate>
+                <rot:approveActListActNumber>Отсутствует</rot:approveActListActNumber>
+            </rot:oivData>
+        </rot:NPAListItem>
+        <rot:NPAListItem>
+            <rot:npaId>0036f39b-df3f-4829-8982-db3ea2d1d8e7</rot:npaId>
+            <rot:region>
+                <rot:code>federal</rot:code>
+                <rot:title>Федеральный уровень</rot:title>
+            </rot:region>
+            <rot:npaType>
+                <rot:code>NpaKind_00005</rot:code>
+                <rot:title>Приказ ФОИВ</rot:title>
+            </rot:npaType>
+            <rot:npaTitle>Об утверждении федерального государственного образовательного стандарта среднего профессионального образования
+                по специальности 43.02.08 Сервис домашнего и коммунального хозяйства</rot:npaTitle>
+            <rot:npaApprovingAuthority/>
+            <rot:npaAcceptanceDate>2014-05-07T02:00:00+06:00</rot:npaAcceptanceDate>
+            <rot:npaPublicId>472</rot:npaPublicId>
+            <rot:minustRegistryDate>2014-06-19T02:00:00+06:00</rot:minustRegistryDate>
+            <rot:minustRegistryNumber>32808</rot:minustRegistryNumber>
+            <rot:npaLinkPravoGovRu>отсутствует на www.pravo.gov.ru</rot:npaLinkPravoGovRu>
+            <rot:oivData>
+                <rot:oivCode>
+                    <rot:code>OIV_00024</rot:code>
+                    <rot:title>Министерство просвещения Российской Федерации</rot:title>
+                </rot:oivCode>
+                <rot:oivControl>
+                    <rot:code>OIV_00001</rot:code>
+                    <rot:title>Органы государственной власти субъектов Российской Федерации, которым переданы полномочия по контролю (надзору)</rot:title>
+                </rot:oivControl>
+                <rot:controlType>
+                    <rot:code>cd7ddb64-6ab8-4170-9b81-4af95dbed51a</rot:code>
+                    <rot:title>Государственная аккредитация образовательной деятельности</rot:title>
+                </rot:controlType>
+                <rot:categoriesOfPersons>
+                    <rot:code>CategoryOfPersons_02</rot:code>
+                    <rot:title>Физические лица, зарегистрированные как ИП</rot:title>
+                </rot:categoriesOfPersons>
+                <rot:categoriesOfPersons>
+                    <rot:code>CategoryOfPersons_03</rot:code>
+                    <rot:title>Юридические лица</rot:title>
+                </rot:categoriesOfPersons>
+                <rot:activitySubtypes>
+                    <rot:code>85</rot:code>
+                    <rot:title>85 Образование</rot:title>
+                </rot:activitySubtypes>
+                <rot:penaltySourceNPAParagraphDetails>нет</rot:penaltySourceNPAParagraphDetails>
+                <rot:approveActListActType>
+                    <rot:code>ActTypeForApproveActList_00003</rot:code>
+                    <rot:title>Утвержденный перечень</rot:title>
+                </rot:approveActListActType>
+                <rot:approveActListDate>2021-09-21T02:00:00+05:00</rot:approveActListDate>
+                <rot:approveActListActNumber>Отсутствует</rot:approveActListActNumber>
+            </rot:oivData>
+        </rot:NPAListItem>
+    </rot:NPAList>
+    <rot:queryItemsQuantity>2</rot:queryItemsQuantity>
+</rot:ROTResponse>
